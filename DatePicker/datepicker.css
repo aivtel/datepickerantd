@@ -1,0 +1,2295 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ursip-calendar-picker-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
+  position: absolute;
+  z-index: 1050;
+  font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+}
+.ursip-calendar-picker-container a {
+  border: none;
+  cursor: pointer;
+}
+.ursip-calendar-picker-container.slide-up-enter.slide-up-enter-active.ursip-calendar-picker-container-placement-topLeft,
+.ursip-calendar-picker-container.slide-up-enter.slide-up-enter-active.ursip-calendar-picker-container-placement-topRight,
+.ursip-calendar-picker-container.slide-up-appear.slide-up-appear-active.ursip-calendar-picker-container-placement-topLeft,
+.ursip-calendar-picker-container.slide-up-appear.slide-up-appear-active.ursip-calendar-picker-container-placement-topRight {
+  -webkit-animation-name: antSlideDownIn;
+  animation-name: antSlideDownIn;
+}
+.ursip-calendar-picker-container.slide-up-enter.slide-up-enter-active.ursip-calendar-picker-container-placement-bottomLeft,
+.ursip-calendar-picker-container.slide-up-enter.slide-up-enter-active.ursip-calendar-picker-container-placement-bottomRight,
+.ursip-calendar-picker-container.slide-up-appear.slide-up-appear-active.ursip-calendar-picker-container-placement-bottomLeft,
+.ursip-calendar-picker-container.slide-up-appear.slide-up-appear-active.ursip-calendar-picker-container-placement-bottomRight {
+  -webkit-animation-name: antSlideUpIn;
+  animation-name: antSlideUpIn;
+}
+.ursip-calendar-picker-container.slide-up-leave.slide-up-leave-active.ursip-calendar-picker-container-placement-topLeft,
+.ursip-calendar-picker-container.slide-up-leave.slide-up-leave-active.ursip-calendar-picker-container-placement-topRight {
+  -webkit-animation-name: antSlideDownOut;
+  animation-name: antSlideDownOut;
+}
+.ursip-calendar-picker-container.slide-up-leave.slide-up-leave-active.ursip-calendar-picker-container-placement-bottomLeft,
+.ursip-calendar-picker-container.slide-up-leave.slide-up-leave-active.ursip-calendar-picker-container-placement-bottomRight {
+  -webkit-animation-name: antSlideUpOut;
+  animation-name: antSlideUpOut;
+}
+.ursip-calendar-picker {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
+  position: relative;
+  display: inline-block;
+  outline: none;
+  cursor: text;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.ursip-calendar-picker-input {
+  outline: none;
+}
+.ursip-calendar-picker-input.ursip-input {
+  line-height: 1.5;
+}
+.ursip-calendar-picker-input.ursip-input-sm {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.ursip-calendar-picker:hover .ursip-calendar-picker-input:not(.ursip-input-disabled) {
+  /* При наведении на иконку календаря менялся border-color */
+  /* border-color: #2f7194; */
+}
+.ursip-calendar-picker:focus .ursip-calendar-picker-input:not(.ursip-input-disabled) {
+  border-color: #2f7194;
+  border-right-width: 1px !important;
+  outline: 0;
+  /* -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); */
+  /* box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); */
+}
+.ursip-calendar-picker-clear,
+.ursip-calendar-picker-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  /* z-index: 1; */
+  /* иконка перекрывала выпадающий список селекта */
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ursip-calendar-picker-clear {
+  z-index: 2;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+.ursip-calendar-picker-clear:hover {
+  color: rgba(0, 0, 0, 0.45);
+}
+.ursip-calendar-picker:hover .ursip-calendar-picker-clear {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ursip-calendar-picker-icon {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  line-height: 1;
+}
+.ursip-calendar-picker-small .ursip-calendar-picker-clear,
+.ursip-calendar-picker-small .ursip-calendar-picker-icon {
+  right: 8px;
+}
+.ursip-calendar {
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  outline: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.ursip-calendar-input-wrap {
+  height: 34px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.ursip-calendar-input {
+  width: 100%;
+  height: 22px;
+  color: rgba(0, 0, 0, 0.65);
+  background: #fff;
+  border: 0;
+  outline: 0;
+  cursor: auto;
+}
+.ursip-calendar-input::-moz-placeholder {
+  color: #bfbfbf;
+  opacity: 1;
+}
+.ursip-calendar-input:-ms-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-input::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.ursip-calendar-week-number {
+  width: 286px;
+}
+.ursip-calendar-week-number-cell {
+  text-align: center;
+}
+.ursip-calendar-header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #ebebeb;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ursip-calendar-header a:hover {
+  color: #2f7194;
+}
+.ursip-calendar-header .ursip-calendar-century-select,
+.ursip-calendar-header .ursip-calendar-decade-select,
+.ursip-calendar-header .ursip-calendar-year-select,
+.ursip-calendar-header .ursip-calendar-month-select {
+  display: inline-block;
+  padding: 0 2px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 40px;
+}
+.ursip-calendar-header .ursip-calendar-century-select-arrow,
+.ursip-calendar-header .ursip-calendar-decade-select-arrow,
+.ursip-calendar-header .ursip-calendar-year-select-arrow,
+.ursip-calendar-header .ursip-calendar-month-select-arrow {
+  display: none;
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn,
+.ursip-calendar-header .ursip-calendar-next-century-btn,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn,
+.ursip-calendar-header .ursip-calendar-next-decade-btn,
+.ursip-calendar-header .ursip-calendar-prev-month-btn,
+.ursip-calendar-header .ursip-calendar-next-month-btn,
+.ursip-calendar-header .ursip-calendar-prev-year-btn,
+.ursip-calendar-header .ursip-calendar-next-year-btn {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  padding: 0 5px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  font-family: 'PT Sans', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif;
+  line-height: 40px;
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn,
+.ursip-calendar-header .ursip-calendar-prev-year-btn {
+  left: 7px;
+  height: 100%;
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn::before,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn::before,
+.ursip-calendar-header .ursip-calendar-prev-year-btn::before,
+.ursip-calendar-header .ursip-calendar-prev-century-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-prev-year-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-prev-century-btn:hover::after,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn:hover::after,
+.ursip-calendar-header .ursip-calendar-prev-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-year-btn::after {
+  display: none;
+}
+.ursip-calendar-header .ursip-calendar-prev-century-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-prev-year-btn::after {
+  position: relative;
+  left: -3px;
+  display: inline-block;
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn,
+.ursip-calendar-header .ursip-calendar-next-decade-btn,
+.ursip-calendar-header .ursip-calendar-next-year-btn {
+  right: 7px;
+  height: 100%;
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn::before,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::before,
+.ursip-calendar-header .ursip-calendar-next-year-btn::before,
+.ursip-calendar-header .ursip-calendar-next-century-btn::after,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-next-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-next-decade-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-next-year-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-next-century-btn:hover::after,
+.ursip-calendar-header .ursip-calendar-next-decade-btn:hover::after,
+.ursip-calendar-header .ursip-calendar-next-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn::after,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-next-year-btn::after {
+  display: none;
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn::before,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::before,
+.ursip-calendar-header .ursip-calendar-next-year-btn::before,
+.ursip-calendar-header .ursip-calendar-next-century-btn::after,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-next-year-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn::before,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::before,
+.ursip-calendar-header .ursip-calendar-next-year-btn::before {
+  position: relative;
+  left: 3px;
+}
+.ursip-calendar-header .ursip-calendar-next-century-btn::after,
+.ursip-calendar-header .ursip-calendar-next-decade-btn::after,
+.ursip-calendar-header .ursip-calendar-next-year-btn::after {
+  display: inline-block;
+}
+.ursip-calendar-header .ursip-calendar-prev-month-btn {
+  left: 29px;
+  height: 100%;
+}
+.ursip-calendar-header .ursip-calendar-prev-month-btn::before,
+.ursip-calendar-header .ursip-calendar-prev-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-header .ursip-calendar-prev-month-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-prev-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-header .ursip-calendar-prev-month-btn::after {
+  display: none;
+}
+.ursip-calendar-header .ursip-calendar-next-month-btn {
+  right: 29px;
+  height: 100%;
+}
+.ursip-calendar-header .ursip-calendar-next-month-btn::before,
+.ursip-calendar-header .ursip-calendar-next-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-header .ursip-calendar-next-month-btn:hover::before,
+.ursip-calendar-header .ursip-calendar-next-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-header .ursip-calendar-next-month-btn::after {
+  display: none;
+}
+.ursip-calendar-header .ursip-calendar-next-month-btn::before,
+.ursip-calendar-header .ursip-calendar-next-month-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-body {
+  padding: 8px 12px;
+}
+.ursip-calendar table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+}
+.ursip-calendar table,
+.ursip-calendar th,
+.ursip-calendar td {
+  text-align: center;
+  border: 0;
+}
+.ursip-calendar-calendar-table {
+  margin-bottom: 0;
+  border-spacing: 0;
+}
+.ursip-calendar-column-header {
+  width: 33px;
+  padding: 6px 0;
+  line-height: 18px;
+  text-align: center;
+}
+.ursip-calendar-column-header .ursip-calendar-column-header-inner {
+  display: block;
+  font-weight: normal;
+}
+.ursip-calendar-week-number-header .ursip-calendar-column-header-inner {
+  display: none;
+}
+.ursip-calendar-cell {
+  height: 30px;
+  padding: 3px 0;
+}
+.ursip-calendar-date {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 22px;
+  text-align: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.ursip-calendar-date-panel {
+  position: relative;
+  outline: none;
+}
+.ursip-calendar-date:hover {
+  /* background: #e6f7ff; */
+  background: #2f7194;
+  color: #fff;
+  cursor: pointer;
+}
+.ursip-calendar-date:active {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-today .ursip-calendar-date {
+  color: #2f7194;
+  font-weight: bold;
+  border-color: #2f7194;
+}
+.ursip-calendar-today:hover {
+  color: #fff;
+}
+.ursip-calendar-selected-day .ursip-calendar-date {
+  /* background: #bae7ff; */
+}
+.ursip-calendar-last-month-cell .ursip-calendar-date,
+.ursip-calendar-next-month-btn-day .ursip-calendar-date,
+.ursip-calendar-last-month-cell .ursip-calendar-date:hover,
+.ursip-calendar-next-month-btn-day .ursip-calendar-date:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background: transparent;
+  border-color: transparent;
+}
+.ursip-calendar-disabled-cell .ursip-calendar-date {
+  position: relative;
+  width: auto;
+  color: rgba(0, 0, 0, 0.25);
+  background: #f5f5f5;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: not-allowed;
+}
+.ursip-calendar-disabled-cell .ursip-calendar-date:hover {
+  background: #f5f5f5;
+}
+.ursip-calendar-disabled-cell.ursip-calendar-selected-day .ursip-calendar-date::before {
+  position: absolute;
+  top: -1px;
+  left: 5px;
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  content: '';
+}
+.ursip-calendar-disabled-cell.ursip-calendar-today .ursip-calendar-date {
+  position: relative;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.ursip-calendar-disabled-cell.ursip-calendar-today .ursip-calendar-date::before {
+  position: absolute;
+  top: -1px;
+  left: 5px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  content: ' ';
+}
+.ursip-calendar-disabled-cell-first-of-row .ursip-calendar-date {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.ursip-calendar-disabled-cell-last-of-row .ursip-calendar-date {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ursip-calendar-footer {
+  padding: 0 12px;
+  line-height: 38px;
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-footer:empty {
+  border-top: 0;
+}
+.ursip-calendar-footer-btn {
+  display: block;
+  text-align: center;
+}
+.ursip-calendar-footer-extra {
+  text-align: left;
+}
+.ursip-calendar .ursip-calendar-today-btn,
+.ursip-calendar .ursip-calendar-clear-btn {
+  display: inline-block;
+  margin: 0 0 0 8px;
+  text-align: center;
+}
+.ursip-calendar .ursip-calendar-today-btn-disabled,
+.ursip-calendar .ursip-calendar-clear-btn-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+.ursip-calendar .ursip-calendar-today-btn:only-child,
+.ursip-calendar .ursip-calendar-clear-btn:only-child {
+  margin: 0;
+}
+.ursip-calendar .ursip-calendar-clear-btn {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  display: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  overflow: hidden;
+  line-height: 20px;
+  text-align: center;
+  text-indent: -76px;
+}
+.ursip-calendar .ursip-calendar-clear-btn::after {
+  display: inline-block;
+  width: 20px;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  line-height: 1;
+  text-indent: 43px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.ursip-calendar .ursip-calendar-clear-btn:hover::after {
+  color: rgba(0, 0, 0, 0.45);
+}
+.ursip-calendar .ursip-calendar-ok-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 0 15px;
+  color: #fff;
+  background-color: #2f7194;
+  border-color: #2f7194;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 4px;
+  line-height: 22px;
+}
+.ursip-calendar .ursip-calendar-ok-btn > .anticon {
+  line-height: 1;
+}
+.ursip-calendar .ursip-calendar-ok-btn,
+.ursip-calendar .ursip-calendar-ok-btn:active,
+.ursip-calendar .ursip-calendar-ok-btn:focus {
+  outline: 0;
+}
+.ursip-calendar .ursip-calendar-ok-btn:not([disabled]):hover {
+  text-decoration: none;
+}
+.ursip-calendar .ursip-calendar-ok-btn:not([disabled]):active {
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ursip-calendar .ursip-calendar-ok-btn.disabled,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] {
+  cursor: not-allowed;
+}
+.ursip-calendar .ursip-calendar-ok-btn.disabled > *,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] > * {
+  pointer-events: none;
+}
+.ursip-calendar .ursip-calendar-ok-btn-lg {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.ursip-calendar .ursip-calendar-ok-btn-sm {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.ursip-calendar .ursip-calendar-ok-btn > a:only-child {
+  color: currentColor;
+}
+.ursip-calendar .ursip-calendar-ok-btn > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  content: '';
+}
+.ursip-calendar .ursip-calendar-ok-btn:hover,
+.ursip-calendar .ursip-calendar-ok-btn:focus {
+  color: #fff;
+  background-color: #2f7194;
+  border-color: #2f7194;
+}
+.ursip-calendar .ursip-calendar-ok-btn:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn:focus > a:only-child {
+  color: currentColor;
+}
+.ursip-calendar .ursip-calendar-ok-btn:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn:focus > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  content: '';
+}
+.ursip-calendar .ursip-calendar-ok-btn:active,
+.ursip-calendar .ursip-calendar-ok-btn.active {
+  color: #fff;
+  background-color: #2f7194;
+  border-color: #2f7194;
+}
+.ursip-calendar .ursip-calendar-ok-btn:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.active > a:only-child {
+  color: currentColor;
+}
+.ursip-calendar .ursip-calendar-ok-btn:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.active > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  content: '';
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled,
+.ursip-calendar .ursip-calendar-ok-btn.disabled,
+.ursip-calendar .ursip-calendar-ok-btn[disabled],
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active > a:only-child {
+  color: currentColor;
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  content: '';
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled,
+.ursip-calendar .ursip-calendar-ok-btn.disabled,
+.ursip-calendar .ursip-calendar-ok-btn[disabled],
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active > a:only-child,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active > a:only-child {
+  color: currentColor;
+}
+.ursip-calendar .ursip-calendar-ok-btn-disabled > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled] > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:hover > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:focus > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled]:active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn-disabled.active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn.disabled.active > a:only-child::after,
+.ursip-calendar .ursip-calendar-ok-btn[disabled].active > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  content: '';
+}
+.ursip-calendar-range-picker-input {
+  width: 44%;
+  height: 99%;
+  font-size: 13px;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: #3a3a3a;
+}
+.ursip-calendar-range-picker-input::-moz-placeholder {
+  color: #bfbfbf;
+  opacity: 1;
+}
+.ursip-calendar-range-picker-input:-ms-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-range-picker-input::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-range-picker-input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.ursip-calendar-range-picker-input[disabled] {
+  cursor: not-allowed;
+}
+.ursip-calendar-range-picker-separator {
+  /* margin-top: 6px;
+  margin-left: 3px; */
+  display: inline-block;
+  min-width: 10px;
+  height: 100%;
+  color: #3a3a3a;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: top;
+  pointer-events: none;
+}
+.ursip-calendar-range {
+  width: 552px;
+  overflow: hidden;
+}
+.ursip-calendar-range .ursip-calendar-date-panel::after {
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  content: '.';
+}
+.ursip-calendar-range-part {
+  position: relative;
+  width: 50%;
+}
+.ursip-calendar-range-left {
+  float: left;
+}
+.ursip-calendar-range-left .ursip-calendar-time-picker-inner {
+  border-right: 1px solid #e8e8e8;
+}
+.ursip-calendar-range-right {
+  float: right;
+}
+.ursip-calendar-range-right .ursip-calendar-time-picker-inner {
+  border-left: 1px solid #e8e8e8;
+}
+.ursip-calendar-range-middle {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  height: 34px;
+  margin: 1px 0 0 0;
+  padding: 0 200px 0 0;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 34px;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ursip-calendar-range-right .ursip-calendar-date-input-wrap {
+  margin-left: -90px;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-range-middle {
+  padding: 0 10px 0 0;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.ursip-calendar-range
+  .ursip-calendar-today
+  :not(.ursip-calendar-disabled-cell)
+  :not(.ursip-calendar-last-month-cell)
+  :not(.ursip-calendar-next-month-btn-day)
+  .ursip-calendar-date {
+  color: #2f7194;
+  background: #bae7ff;
+  border-color: #2f7194;
+}
+.ursip-calendar-range .ursip-calendar-selected-start-date .ursip-calendar-date,
+.ursip-calendar-range .ursip-calendar-selected-end-date .ursip-calendar-date {
+  color: #fff;
+  background: #2f7194;
+  border: 1px solid transparent;
+}
+.ursip-calendar-range .ursip-calendar-selected-start-date .ursip-calendar-date:hover,
+.ursip-calendar-range .ursip-calendar-selected-end-date .ursip-calendar-date:hover {
+  background: #2f7194;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-range-right .ursip-calendar-date-input-wrap {
+  margin-left: 0;
+}
+.ursip-calendar-range .ursip-calendar-input-wrap {
+  position: relative;
+  height: 34px;
+}
+.ursip-calendar-range .ursip-calendar-input,
+.ursip-calendar-range .ursip-calendar-time-picker-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 24px;
+  padding-right: 0;
+  padding-left: 0;
+  line-height: 24px;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ursip-calendar-range .ursip-calendar-input::-moz-placeholder,
+.ursip-calendar-range .ursip-calendar-time-picker-input::-moz-placeholder {
+  color: #bfbfbf;
+  opacity: 1;
+}
+.ursip-calendar-range .ursip-calendar-input:-ms-input-placeholder,
+.ursip-calendar-range .ursip-calendar-time-picker-input:-ms-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-range .ursip-calendar-input::-webkit-input-placeholder,
+.ursip-calendar-range .ursip-calendar-time-picker-input::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-calendar-range .ursip-calendar-input:placeholder-shown,
+.ursip-calendar-range .ursip-calendar-time-picker-input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.ursip-calendar-range .ursip-calendar-input:hover,
+.ursip-calendar-range .ursip-calendar-time-picker-input:hover {
+  border-color: #2f7194;
+  border-right-width: 1px !important;
+}
+.ursip-calendar-range .ursip-calendar-input:focus,
+.ursip-calendar-range .ursip-calendar-time-picker-input:focus {
+  border-color: #2f7194;
+  border-right-width: 1px !important;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+.ursip-calendar-range .ursip-calendar-input-disabled,
+.ursip-calendar-range .ursip-calendar-time-picker-input-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ursip-calendar-range .ursip-calendar-input-disabled:hover,
+.ursip-calendar-range .ursip-calendar-time-picker-input-disabled:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px !important;
+}
+.ursip-calendar-range .ursip-calendar-input[disabled],
+.ursip-calendar-range .ursip-calendar-time-picker-input[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ursip-calendar-range .ursip-calendar-input[disabled]:hover,
+.ursip-calendar-range .ursip-calendar-time-picker-input[disabled]:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px !important;
+}
+textarea.ursip-calendar-range .ursip-calendar-input,
+textarea.ursip-calendar-range .ursip-calendar-time-picker-input {
+  max-width: 100%;
+  height: auto;
+  min-height: 32px;
+  line-height: 1.5;
+  vertical-align: bottom;
+  -webkit-transition: all 0.3s, height 0s;
+  transition: all 0.3s, height 0s;
+}
+.ursip-calendar-range .ursip-calendar-input-lg,
+.ursip-calendar-range .ursip-calendar-time-picker-input-lg {
+  height: 40px;
+  padding: 6px 11px;
+  font-size: 16px;
+}
+.ursip-calendar-range .ursip-calendar-input-sm,
+.ursip-calendar-range .ursip-calendar-time-picker-input-sm {
+  height: 24px;
+  padding: 1px 7px;
+}
+.ursip-calendar-range .ursip-calendar-input:focus,
+.ursip-calendar-range .ursip-calendar-time-picker-input:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ursip-calendar-range .ursip-calendar-time-picker-icon {
+  display: none;
+}
+.ursip-calendar-range.ursip-calendar-week-number {
+  width: 574px;
+}
+.ursip-calendar-range.ursip-calendar-week-number .ursip-calendar-range-part {
+  width: 286px;
+}
+.ursip-calendar-range .ursip-calendar-year-panel,
+.ursip-calendar-range .ursip-calendar-month-panel,
+.ursip-calendar-range .ursip-calendar-decade-panel {
+  top: 34px;
+}
+.ursip-calendar-range .ursip-calendar-month-panel .ursip-calendar-year-panel {
+  top: 0;
+}
+.ursip-calendar-range .ursip-calendar-decade-panel-table,
+.ursip-calendar-range .ursip-calendar-year-panel-table,
+.ursip-calendar-range .ursip-calendar-month-panel-table {
+  height: 208px;
+}
+.ursip-calendar-range .ursip-calendar-in-range-cell {
+  position: relative;
+  border-radius: 0;
+}
+.ursip-calendar-range .ursip-calendar-in-range-cell > div {
+  position: relative;
+  z-index: 1;
+}
+.ursip-calendar-range .ursip-calendar-in-range-cell::before {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+  display: block;
+  background: #e6f7ff;
+  border: 0;
+  border-radius: 0;
+  content: '';
+}
+.ursip-calendar-range .ursip-calendar-footer-extra {
+  float: left;
+}
+div.ursip-calendar-range-quick-selector {
+  text-align: left;
+}
+div.ursip-calendar-range-quick-selector > a {
+  margin-right: 8px;
+}
+.ursip-calendar-range .ursip-calendar-header,
+.ursip-calendar-range .ursip-calendar-month-panel-header,
+.ursip-calendar-range .ursip-calendar-year-panel-header,
+.ursip-calendar-range .ursip-calendar-decade-panel-header {
+  border-bottom: 0;
+}
+.ursip-calendar-range .ursip-calendar-body,
+.ursip-calendar-range .ursip-calendar-month-panel-body,
+.ursip-calendar-range .ursip-calendar-year-panel-body,
+.ursip-calendar-range .ursip-calendar-decade-panel-body {
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker {
+  top: 68px;
+  z-index: 2;
+  width: 100%;
+  height: 207px;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker-panel {
+  height: 267px;
+  margin-top: -34px;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker-inner {
+  height: 100%;
+  padding-top: 40px;
+  background: none;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker-combobox {
+  display: inline-block;
+  height: 100%;
+  background-color: #fff;
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker-select {
+  height: 100%;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-time-picker-select ul {
+  max-height: 100%;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-footer .ursip-calendar-time-picker-btn {
+  margin-right: 8px;
+}
+.ursip-calendar-range.ursip-calendar-time .ursip-calendar-today-btn {
+  height: 22px;
+  margin: 8px 12px;
+  line-height: 22px;
+}
+.ursip-calendar-range-with-ranges.ursip-calendar-time .ursip-calendar-time-picker {
+  height: 233px;
+}
+.ursip-calendar-range.ursip-calendar-show-time-picker .ursip-calendar-body {
+  border-top-color: transparent;
+}
+.ursip-calendar-time-picker {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  background-color: #fff;
+}
+.ursip-calendar-time-picker-panel {
+  position: absolute;
+  z-index: 1050;
+  width: 100%;
+}
+.ursip-calendar-time-picker-inner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: none;
+}
+.ursip-calendar-time-picker-combobox {
+  width: 100%;
+}
+.ursip-calendar-time-picker-column-1,
+.ursip-calendar-time-picker-column-1 .ursip-calendar-time-picker-select {
+  width: 100%;
+}
+.ursip-calendar-time-picker-column-2 .ursip-calendar-time-picker-select {
+  width: 50%;
+}
+.ursip-calendar-time-picker-column-3 .ursip-calendar-time-picker-select {
+  width: 33.33%;
+}
+.ursip-calendar-time-picker-column-4 .ursip-calendar-time-picker-select {
+  width: 25%;
+}
+.ursip-calendar-time-picker-input-wrap {
+  display: none;
+}
+.ursip-calendar-time-picker-select {
+  position: relative;
+  float: left;
+  height: 226px;
+  overflow: hidden;
+  font-size: 13px;
+  border-right: 1px solid #e8e8e8;
+}
+.ursip-calendar-time-picker-select:hover {
+  overflow-y: auto;
+}
+.ursip-calendar-time-picker-select:first-child {
+  margin-left: 0;
+  border-left: 0;
+}
+.ursip-calendar-time-picker-select:last-child {
+  border-right: 0;
+}
+.ursip-calendar-time-picker-select ul {
+  width: 100%;
+  max-height: 206px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ursip-calendar-time-picker-select li {
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  line-height: 24px;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ursip-calendar-time-picker-select li:last-child::after {
+  display: block;
+  height: 202px;
+  content: '';
+}
+.ursip-calendar-time-picker-select li:hover {
+  background: #e6f7ff;
+}
+.ursip-calendar-time-picker-select li:focus {
+  color: #2f7194;
+  font-weight: 600;
+  outline: none;
+}
+li.ursip-calendar-time-picker-select-option-selected {
+  font-weight: 600;
+  background: #f5f5f5;
+}
+li.ursip-calendar-time-picker-select-option-disabled {
+  color: rgba(0, 0, 0, 0.25);
+}
+li.ursip-calendar-time-picker-select-option-disabled:hover {
+  background: transparent;
+  cursor: not-allowed;
+}
+.ursip-calendar-time .ursip-calendar-day-select {
+  display: inline-block;
+  padding: 0 2px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 34px;
+}
+.ursip-calendar-time .ursip-calendar-footer {
+  position: relative;
+  height: auto;
+}
+.ursip-calendar-time .ursip-calendar-footer-btn {
+  text-align: right;
+}
+.ursip-calendar-time .ursip-calendar-footer .ursip-calendar-today-btn {
+  float: left;
+  margin: 0;
+}
+.ursip-calendar-time .ursip-calendar-footer .ursip-calendar-time-picker-btn {
+  display: inline-block;
+  margin-right: 8px;
+}
+.ursip-calendar-time .ursip-calendar-footer .ursip-calendar-time-picker-btn-disabled {
+  color: rgba(0, 0, 0, 0.25);
+}
+.ursip-calendar-month-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  border-radius: 4px;
+  outline: none;
+}
+.ursip-calendar-month-panel > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+.ursip-calendar-month-panel-hidden {
+  display: none;
+}
+.ursip-calendar-month-panel-header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+.ursip-calendar-month-panel-header a:hover {
+  color: #2f7194;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-century-select,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-decade-select,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-year-select,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-month-select {
+  display: inline-block;
+  padding: 0 2px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 40px;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-century-select-arrow,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-decade-select-arrow,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-year-select-arrow,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-month-select-arrow {
+  display: none;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  padding: 0 5px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  font-family: 'PT Sans', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif;
+  line-height: 40px;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn {
+  left: 7px;
+  height: 100%;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn:hover::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn:hover::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn::after {
+  display: none;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-year-btn::after {
+  position: relative;
+  left: -3px;
+  display: inline-block;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn {
+  right: 7px;
+  height: 100%;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn:hover::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn:hover::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::after {
+  display: none;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::before {
+  position: relative;
+  left: 3px;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-century-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-decade-btn::after,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-year-btn::after {
+  display: inline-block;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn {
+  left: 29px;
+  height: 100%;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-prev-month-btn::after {
+  display: none;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn {
+  right: 29px;
+  height: 100%;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn:hover::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn::after {
+  display: none;
+}
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn::before,
+.ursip-calendar-month-panel-header .ursip-calendar-month-panel-next-month-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-month-panel-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.ursip-calendar-month-panel-footer {
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-month-panel-footer .ursip-calendar-footer-extra {
+  padding: 0 12px;
+}
+.ursip-calendar-month-panel-table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.ursip-calendar-month-panel-selected-cell .ursip-calendar-month-panel-month {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-month-panel-selected-cell .ursip-calendar-month-panel-month:hover {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-month-panel-cell {
+  text-align: center;
+}
+.ursip-calendar-month-panel-cell-disabled .ursip-calendar-month-panel-month,
+.ursip-calendar-month-panel-cell-disabled .ursip-calendar-month-panel-month:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+.ursip-calendar-month-panel-month {
+  display: inline-block;
+  height: 24px;
+  margin: 0 auto;
+  padding: 0 8px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border-radius: 2px;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.ursip-calendar-month-panel-month:hover {
+  background: #e6f7ff;
+  cursor: pointer;
+}
+.ursip-calendar-year-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  border-radius: 4px;
+  outline: none;
+}
+.ursip-calendar-year-panel > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+.ursip-calendar-year-panel-hidden {
+  display: none;
+}
+.ursip-calendar-year-panel-header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+.ursip-calendar-year-panel-header a:hover {
+  color: #40a9ff;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-century-select,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-decade-select,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-year-select,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-month-select {
+  display: inline-block;
+  padding: 0 2px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 40px;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-century-select-arrow,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-decade-select-arrow,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-year-select-arrow,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-month-select-arrow {
+  display: none;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  padding: 0 5px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  font-family: 'PT Sans', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif;
+  line-height: 40px;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn {
+  left: 7px;
+  height: 100%;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn:hover::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn:hover::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn::after {
+  display: none;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-year-btn::after {
+  position: relative;
+  left: -3px;
+  display: inline-block;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn {
+  right: 7px;
+  height: 100%;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn:hover::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn:hover::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::after {
+  display: none;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::before {
+  position: relative;
+  left: 3px;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-century-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-decade-btn::after,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-year-btn::after {
+  display: inline-block;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn {
+  left: 29px;
+  height: 100%;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-prev-month-btn::after {
+  display: none;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn {
+  right: 29px;
+  height: 100%;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn:hover::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn::after {
+  display: none;
+}
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn::before,
+.ursip-calendar-year-panel-header .ursip-calendar-year-panel-next-month-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-year-panel-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.ursip-calendar-year-panel-footer {
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-year-panel-footer .ursip-calendar-footer-extra {
+  padding: 0 12px;
+}
+.ursip-calendar-year-panel-table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.ursip-calendar-year-panel-cell {
+  text-align: center;
+}
+.ursip-calendar-year-panel-year {
+  display: inline-block;
+  height: 24px;
+  margin: 0 auto;
+  padding: 0 8px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border-radius: 2px;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.ursip-calendar-year-panel-year:hover {
+  background: #e6f7ff;
+  cursor: pointer;
+}
+.ursip-calendar-year-panel-selected-cell .ursip-calendar-year-panel-year {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-year-panel-selected-cell .ursip-calendar-year-panel-year:hover {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-year-panel-last-decade-cell .ursip-calendar-year-panel-year,
+.ursip-calendar-year-panel-next-decade-cell .ursip-calendar-year-panel-year {
+  color: rgba(0, 0, 0, 0.25);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ursip-calendar-decade-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 4px;
+  outline: none;
+}
+.ursip-calendar-decade-panel-hidden {
+  display: none;
+}
+.ursip-calendar-decade-panel-header {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+.ursip-calendar-decade-panel-header a:hover {
+  color: #2f7194;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-century-select,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-decade-select,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-year-select,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-month-select {
+  display: inline-block;
+  padding: 0 2px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 40px;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-century-select-arrow,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-decade-select-arrow,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-year-select-arrow,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-month-select-arrow {
+  display: none;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  padding: 0 5px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  font-family: 'PT Sans', 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif;
+  line-height: 40px;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn {
+  left: 7px;
+  height: 100%;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn:hover::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn:hover::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn::after {
+  display: none;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-year-btn::after {
+  position: relative;
+  left: -3px;
+  display: inline-block;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn {
+  right: 7px;
+  height: 100%;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn:hover::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn:hover::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::after {
+  display: none;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::before {
+  position: relative;
+  left: 3px;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-century-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-decade-btn::after,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-year-btn::after {
+  display: inline-block;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn {
+  left: 29px;
+  height: 100%;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-prev-month-btn::after {
+  display: none;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn {
+  right: 29px;
+  height: 100%;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn::after {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  border: 0 solid #aaa;
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg) scale(0.8);
+  -ms-transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn:hover::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn:hover::after {
+  border-color: rgba(0, 0, 0, 0.65);
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn::after {
+  display: none;
+}
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn::before,
+.ursip-calendar-decade-panel-header .ursip-calendar-decade-panel-next-month-btn::after {
+  -webkit-transform: rotate(135deg) scale(0.8);
+  -ms-transform: rotate(135deg) scale(0.8);
+  transform: rotate(135deg) scale(0.8);
+}
+.ursip-calendar-decade-panel-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.ursip-calendar-decade-panel-footer {
+  border-top: 1px solid #e8e8e8;
+}
+.ursip-calendar-decade-panel-footer .ursip-calendar-footer-extra {
+  padding: 0 12px;
+}
+.ursip-calendar-decade-panel-table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.ursip-calendar-decade-panel-cell {
+  white-space: nowrap;
+  text-align: center;
+}
+.ursip-calendar-decade-panel-decade {
+  display: inline-block;
+  height: 24px;
+  margin: 0 auto;
+  padding: 0 6px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
+  border-radius: 2px;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.ursip-calendar-decade-panel-decade:hover {
+  background: #e6f7ff;
+  cursor: pointer;
+}
+.ursip-calendar-decade-panel-selected-cell .ursip-calendar-decade-panel-decade {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-decade-panel-selected-cell .ursip-calendar-decade-panel-decade:hover {
+  color: #fff;
+  background: #2f7194;
+}
+.ursip-calendar-decade-panel-last-century-cell .ursip-calendar-decade-panel-decade,
+.ursip-calendar-decade-panel-next-century-cell .ursip-calendar-decade-panel-decade {
+  color: rgba(0, 0, 0, 0.25);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ursip-calendar-month .ursip-calendar-month-header-wrap {
+  position: relative;
+  height: 288px;
+}
+.ursip-calendar-month .ursip-calendar-month-panel,
+.ursip-calendar-month .ursip-calendar-year-panel {
+  top: 0;
+  height: 100%;
+}
+.ursip-calendar-week-number-cell {
+  opacity: 0.5;
+}
+.ursip-calendar-week-number .ursip-calendar-body tr {
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.ursip-calendar-week-number .ursip-calendar-body tr:hover {
+  background: #e6f7ff;
+}
+.ursip-calendar-week-number .ursip-calendar-body tr.ursip-calendar-active-week {
+  font-weight: bold;
+  background: #bae7ff;
+}
+.ursip-calendar-week-number .ursip-calendar-body tr .ursip-calendar-selected-day .ursip-calendar-date,
+.ursip-calendar-week-number .ursip-calendar-body tr .ursip-calendar-selected-day:hover .ursip-calendar-date {
+  color: rgba(0, 0, 0, 0.65);
+  background: transparent;
+}
+
+.ursip-input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-variant: tabular-nums;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+  line-height: 1.5;
+  background: #f5f5f5;
+  background-color: #f5f5f5;
+  background-image: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.ursip-input::-moz-placeholder {
+  color: #bfbfbf;
+  opacity: 1;
+}
+.ursip-input:-ms-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-input::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.ursip-input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.ursip-input:hover {
+  border-color: #2f7194;
+  border-right-width: 1px !important;
+}
+.ursip-input:focus {
+  border-color: #2f7194;
+  border-right-width: 1px !important;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+.ursip-input-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ursip-input-disabled:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px !important;
+}
+.ursip-input[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ursip-input[disabled]:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px !important;
+}
+textarea.ursip-input {
+  max-width: 100%;
+  height: auto;
+  min-height: 32px;
+  line-height: 1.5;
+  vertical-align: bottom;
+  -webkit-transition: all 0.3s, height 0s;
+  transition: all 0.3s, height 0s;
+}
+.ursip-input-lg {
+  height: 40px;
+  padding: 6px 11px;
+  font-size: 16px;
+}
+.ursip-input-sm {
+  height: 24px;
+  padding: 1px 7px;
+}
